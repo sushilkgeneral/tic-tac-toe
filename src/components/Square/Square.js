@@ -1,6 +1,6 @@
 const Square = (props) => {
     return (
-        <button>
+        <button onClick={props.onClick}>
             {props.value}
         </button>
     );

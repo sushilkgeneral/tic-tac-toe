@@ -1,4 +1,4 @@
-import {cleanup, render, screen} from "@testing-library/react";
+import {cleanup, fireEvent, render, screen} from "@testing-library/react";
 import Square from "./Square";
 
 afterEach(cleanup);
@@ -15,5 +15,13 @@ describe('Square Component', () => {
 
         const button = screen.queryByText('X');
         expect(button).toBeInTheDocument();
+    });
+
+    test('when button is clicked - calls the onClick function passed via props', () => {
+        const handleClick = jest.fn()
+        render(<Square onClick={handleClick}/>);
+
+        fireEvent.click(screen.getByRole("button"));
+        expect(handleClick).toHaveBeenCalledTimes(1)
     });
 });

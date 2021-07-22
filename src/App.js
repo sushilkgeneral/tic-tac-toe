@@ -1,10 +1,5 @@
-
 function App() {
-  return (
-    <div className="App">
-      
-    </div>
-  );
+  return <div data-testid="tic-tac-toe-app"></div>;
 }
 
 export default App;

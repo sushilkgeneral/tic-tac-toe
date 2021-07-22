@@ -1,7 +1,7 @@
-const Square = () => {
+const Square = (props) => {
     return (
         <button>
-
+            {props.value}
         </button>
     );
 }

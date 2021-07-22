@@ -1,5 +1,9 @@
 const Board = () => {
-    return null;
+    return (
+        <div data-testid="board">
+
+        </div>
+    );
 }
 
 export default Board;

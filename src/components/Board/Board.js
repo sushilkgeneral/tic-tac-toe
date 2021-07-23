@@ -1,8 +1,10 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Square from "../Square/Square";
 import classes from "./Board.module.css";
+import { actions } from "../../store/store";
 
 const Board = () => {
+    const dispatch = useDispatch();
     const values = useSelector(state => state.values);
 
     const squares = values.map((value, index) => {
@@ -10,7 +12,7 @@ const Board = () => {
             <Square
                 key={index}
                 value={value}
-                onClick={() => {}}
+                onClick={() => dispatch(actions.handleClick(index))}
             />
         );
     });

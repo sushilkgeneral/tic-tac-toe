@@ -35,6 +35,15 @@ describe('Redux Store', () => {
             const newState = reducer(initialState, actions.handleClick(4));
             expect(newState.values).toStrictEqual(initialState.values);
         });
+
+        test('should switch player after updating the values', () => {
+            const initialState = {
+                isPlayerX: false,
+                values: [null, null, null, null, 'X', null, null, null, null]
+            }
+            const newState = reducer(initialState, actions.handleClick(0));
+            expect(newState.isPlayerX).toBeTruthy();
+        });
     });
 
 });

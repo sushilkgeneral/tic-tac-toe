@@ -10,7 +10,11 @@ const initialState = {
 const slice = createSlice({
     name: 'board',
     initialState: initialState,
-    reducers: {}
+    reducers: {
+        handleClick(state, action) {
+
+        }
+    }
 });
 
 const store = configureStore({

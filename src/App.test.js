@@ -3,9 +3,9 @@ import { render } from "./test-utils";
 import App from "./App";
 
 describe('App Component', () => {
-  test("renders the element with 'tic-tac-toe-app' as test Id", () => {
+  test("renders the board element", () => {
     render(<App />);
-    const element = screen.queryByTestId("tic-tac-toe-app");
+    const element = screen.queryByTestId("board");
     expect(element).toBeInTheDocument();
   });
 });

@@ -1,15 +1,18 @@
 import { screen} from "@testing-library/react";
-import { render } from "../../test-utils";
+import { customRender } from "../../test-utils";
 import Board from './Board';
 
 describe('Board component', () => {
-    test('renders a component with the right elements', () => {
-        render(<Board />);
+    test('renders with the correct elements', () => {
+        customRender(<Board />);
 
         const mainElement = screen.queryByTestId("board");
         expect(mainElement).toBeInTheDocument();
 
-        const headingElement = screen.queryByText("Tic Tac Toe")
+        const headingElement = screen.queryByText("Tic Tac Toe");
         expect(headingElement).toBeInTheDocument();
+
+        const squares = screen.queryAllByTestId('square');
+        expect(squares.length).toBe(9);
     });
 });

@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Square from "../Square/Square";
 import classes from "./Board.module.css";
 import { actions } from "../../store/store";
+import Button from "../Button/Button";
 
 const Board = () => {
     const dispatch = useDispatch();
@@ -21,6 +22,7 @@ const Board = () => {
         <div data-testid="board" className={classes.board}>
             <h2>Tic Tac Toe</h2>
             <div className={classes.squares}>{squares}</div>
+            <Button onClick={()=>{}} text="Reset"/>
         </div>
     );
 }

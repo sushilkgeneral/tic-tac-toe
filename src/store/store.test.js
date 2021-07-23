@@ -79,7 +79,7 @@ describe('Redux Store', () => {
         });
     });
 
-    test('handleReset reducer resets values, sets the player to X and resets history', () => {
+    test('handleReset reducer resets values, sets the player to X, resets history and resets winner', () => {
         const initialState = {
             isPlayerX: false,
             values: [null, null, "O", null, 'X', null, null, null, null],
@@ -93,6 +93,7 @@ describe('Redux Store', () => {
         expect(newState.isPlayerX).toBeTruthy();
         expect(newState.values).toStrictEqual([null, null, null, null, null, null, null, null, null]);
         expect(newState.history.length).toBe(1);
+        expect(newState.winner).toBeNull();
     });
 
     test('handleRewind reducer removes last entry from history, switches player and sets values to the second last entry in history', () => {

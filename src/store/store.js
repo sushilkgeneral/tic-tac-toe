@@ -32,6 +32,7 @@ const slice = createSlice({
             state.values = defaultValues;
             state.history = [defaultValues];
             state.isPlayerX = true;
+            state.winner = null;
         }
     }
 });

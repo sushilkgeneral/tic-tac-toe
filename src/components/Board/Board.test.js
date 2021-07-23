@@ -16,6 +16,9 @@ describe('Board component', () => {
 
         const squares = screen.queryAllByTestId('square');
         expect(squares.length).toBe(9);
+
+        const resetButton = screen.queryByText("Reset");
+        expect(resetButton).toBeInTheDocument();
     });
 
     test('clicking on an empty square updates the value & switches player', () => {

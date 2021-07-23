@@ -1,8 +1,14 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
+const defaultValues = new Array(9).fill(null);
+
+const initialState = {
+    values: defaultValues,
+};
+
 const slice = createSlice({
     name: 'board',
-    initialState: {},
+    initialState: initialState,
     reducers: {}
 });
 

@@ -17,10 +17,11 @@ const slice = createSlice({
                 state.values[index] = state.isPlayerX ? "X" : "O";
                 state.isPlayerX = !state.isPlayerX;
             }
+        },
+        handleReset(state) {
+            state.values = defaultValues;
+            state.isPlayerX = true;
         }
-    },
-    handleReset(state) {
-
     }
 });
 

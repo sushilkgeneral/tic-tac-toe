@@ -12,7 +12,8 @@ const slice = createSlice({
     initialState: initialState,
     reducers: {
         handleClick(state, action) {
-
+            const index = action.payload;
+            state.values[index] = state.isPlayerX ? "X" : "O";
         }
     }
 });

@@ -14,15 +14,17 @@ describe('Redux Store', () => {
                 isPlayerX: true,
                 values: [null, null, null, null, null, null, null, null, null]
             }
+            const expectedValues1 = [null, null, null, 'X', null, null, null, null, null];
             const newState1 = reducer(initialState1, actions.handleClick(3));
-            expect(newState1.values).toBe([null, null, null, 'X', null, null, null, null, null])
+            expect(newState1.values).toStrictEqual(expectedValues1);
 
             const initialState2 = {
                 isPlayerX: false,
                 values: [null, null, null, null, null, null, null, null, null]
             }
+            const expectedValues2 = [null, null, null, 'O', null, null, null, null, null];
             const newState2 = reducer(initialState2, actions.handleClick(3));
-            expect(newState2.values).toBe([null, null, null, 'O', null, null, null, null, null])
+            expect(newState2.values).toStrictEqual(expectedValues2);
         });
     });
 

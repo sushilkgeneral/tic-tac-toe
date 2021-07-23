@@ -16,11 +16,13 @@ const slice = createSlice({
             const index = action.payload;
             if (state.values[index] === null) {
                 state.values[index] = state.isPlayerX ? "X" : "O";
+                state.history.push(state.values);
                 state.isPlayerX = !state.isPlayerX;
             }
         },
         handleReset(state) {
             state.values = defaultValues;
+            state.history = [defaultValues];
             state.isPlayerX = true;
         }
     }

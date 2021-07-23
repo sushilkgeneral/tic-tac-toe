@@ -46,6 +46,16 @@ describe('Redux Store', () => {
         });
     });
 
+    test('handleReset reducer resets values & sets the player to X', () => {
+        const initialState = {
+            isPlayerX: false,
+            values: [null, null, "O", null, 'X', null, null, null, null]
+        }
+        const newState = reducer(initialState, actions.handleReset());
+        expect(newState.isPlayerX).toBeTruthy();
+        expect(newState.values).toStrictEqual([null, null, null, null, null, null, null, null, null]);
+    });
+
 });
 
 

@@ -3,6 +3,7 @@ import { createSlice, configureStore } from "@reduxjs/toolkit";
 const defaultValues = new Array(9).fill(null);
 
 const initialState = {
+    isPlayerX: true,
     values: defaultValues,
 };
 

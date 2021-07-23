@@ -13,7 +13,9 @@ const slice = createSlice({
     reducers: {
         handleClick(state, action) {
             const index = action.payload;
-            state.values[index] = state.isPlayerX ? "X" : "O";
+            if (state.values[index] === null) {
+                state.values[index] = state.isPlayerX ? "X" : "O";
+            }
         }
     }
 });

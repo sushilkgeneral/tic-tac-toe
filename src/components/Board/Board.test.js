@@ -37,7 +37,7 @@ describe('Board component', () => {
         expect(screen.queryAllByText('O').length).toBe(1);
     })
 
-    test('clicking on an non-empty square does not update values & does not switches player', () => {
+    test('clicking on a non-empty square does not update values & does not switch player', () => {
         customRender(<Board />);
         const squares = screen.queryAllByTestId('square');
         expect(screen.queryAllByText('X').length).toBe(0);

@@ -46,4 +46,25 @@ describe('Board component', () => {
         expect(screen.queryAllByText('X').length).toBe(1);
         expect(screen.queryAllByText('O').length).toBe(0);
     })
+
+    test('clicking reset removes all values from the squares & sets player to X', () => {
+        customRender(<Board />);
+        const squares = screen.queryAllByTestId('square');
+        expect(screen.queryAllByText('X').length).toBe(0);
+        expect(screen.queryAllByText('O').length).toBe(0);
+        fireEvent.click(squares[0]);
+        expect(screen.queryAllByText('X').length).toBe(1);
+        expect(screen.queryAllByText('O').length).toBe(0);
+        fireEvent.click(squares[1]);
+        expect(screen.queryAllByText('X').length).toBe(1);
+        expect(screen.queryAllByText('O').length).toBe(1);
+
+        const resetButton = screen.queryByText("Reset");
+        fireEvent.click(resetButton);
+        expect(screen.queryAllByText('X').length).toBe(0);
+        expect(screen.queryAllByText('O').length).toBe(0);
+        fireEvent.click(squares[0]);
+        expect(screen.queryAllByText('X').length).toBe(1);
+        expect(screen.queryAllByText('O').length).toBe(0);
+    })
 });

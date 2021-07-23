@@ -2,4 +2,13 @@
     flex-grow: 1;
     margin: 1rem;
     height: 2rem;
+    background-color: darkseagreen;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.button:active {
+    background-color: yellowgreen;
 }

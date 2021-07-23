@@ -2,6 +2,19 @@
     background-color: darkgoldenrod;
     width: 8rem;
     height: 8rem;
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    border: 1px solid;
+    cursor: pointer;
+}
+
+.square:hover {
+    border: 2px solid;
+}
+
+.square:active {
+    background-color: gold;
 }
 
 @media screen and (max-width: 480px) {

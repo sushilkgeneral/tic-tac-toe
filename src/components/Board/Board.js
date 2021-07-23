@@ -8,6 +8,10 @@ const Board = () => {
     const dispatch = useDispatch();
     const values = useSelector(state => state.values);
 
+    const rewindHandler = () => {
+        dispatch(actions.handleRewind());
+    };
+
     const resetHandler = () => {
         dispatch(actions.handleReset());
     };
@@ -26,7 +30,7 @@ const Board = () => {
         <div data-testid="board" className={classes.board}>
             <h2>Tic Tac Toe</h2>
             <div className={classes.squares}>{squares}</div>
-            <Button onClick={()=>{}} text="Rewind"/>
+            <Button onClick={rewindHandler} text="Rewind"/>
             <Button onClick={resetHandler} text="Reset"/>
         </div>
     );

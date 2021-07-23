@@ -69,5 +69,30 @@ describe('Board component', () => {
         fireEvent.click(squares[0]);
         expect(screen.queryAllByText('X').length).toBe(1);
         expect(screen.queryAllByText('O').length).toBe(0);
-    })
+    });
+
+    test('clicking rewind will undo the last play', () => {
+        customRender(<Board />);
+        const squares = screen.queryAllByTestId('square');
+        expect(screen.queryAllByText('X').length).toBe(0);
+        expect(screen.queryAllByText('O').length).toBe(0);
+        fireEvent.click(squares[0]);
+        expect(screen.queryAllByText('X').length).toBe(1);
+        expect(screen.queryAllByText('O').length).toBe(0);
+        fireEvent.click(squares[1]);
+        expect(screen.queryAllByText('X').length).toBe(1);
+        expect(screen.queryAllByText('O').length).toBe(1);
+
+        const rewindButton = screen.queryByText("Rewind");
+        fireEvent.click(rewindButton);
+        expect(screen.queryAllByText('X').length).toBe(1);
+        expect(screen.queryAllByText('O').length).toBe(0);
+        fireEvent.click(rewindButton);
+        expect(screen.queryAllByText('X').length).toBe(0);
+        expect(screen.queryAllByText('O').length).toBe(0);
+
+        fireEvent.click(squares[0]);
+        expect(screen.queryAllByText('X').length).toBe(1);
+        expect(screen.queryAllByText('O').length).toBe(0);
+    });
 });

@@ -1,5 +1,6 @@
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 import Square from "../Square/Square";
+import classes from "./Board.module.css";
 
 const Board = () => {
     const values = useSelector(state => state.values);
@@ -15,9 +16,9 @@ const Board = () => {
     });
 
     return (
-        <div data-testid="board">
+        <div data-testid="board" className={classes.board}>
             <h2>Tic Tac Toe</h2>
-            <div>{squares}</div>
+            <div className={classes.squares}>{squares}</div>
         </div>
     );
 }

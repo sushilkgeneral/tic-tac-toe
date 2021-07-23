@@ -1,0 +1,12 @@
+.square {
+    background-color: darkgoldenrod;
+    width: 8rem;
+    height: 8rem;
+}
+
+@media screen and (max-width: 480px) {
+    .square {
+        width: 6rem;
+        height: 6rem;
+    }
+}

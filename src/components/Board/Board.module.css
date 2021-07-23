@@ -1,0 +1,20 @@
+.board {
+    width: 24rem;
+    margin: auto;
+}
+
+@media screen and (max-width: 480px) {
+    .board {
+        width: 18rem;
+    }
+}
+
+.board > h2 {
+    display: flex;
+    justify-content: center;
+}
+
+.squares {
+    display: flex;
+    flex-wrap: wrap;
+}

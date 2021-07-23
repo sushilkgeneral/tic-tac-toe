@@ -95,4 +95,54 @@ describe('Board component', () => {
         expect(screen.queryAllByText('X').length).toBe(1);
         expect(screen.queryAllByText('O').length).toBe(0);
     });
+
+    test('displays X as the winner when X wins', () => {
+        customRender(<Board />);
+        const squares = screen.queryAllByTestId('square');
+        fireEvent.click(squares[0]);
+        fireEvent.click(squares[1]);
+        fireEvent.click(squares[2]);
+        fireEvent.click(squares[3]);
+        fireEvent.click(squares[4]);
+        fireEvent.click(squares[5]);
+        fireEvent.click(squares[6]);
+        fireEvent.click(squares[7]);
+        fireEvent.click(squares[8]);
+
+        const element = screen.queryByText("X wins!");
+        expect(element).toBeInTheDocument();
+    });
+
+    test('displays O as the winner when O wins', () => {
+        customRender(<Board />);
+        const squares = screen.queryAllByTestId('square');
+
+        fireEvent.click(squares[0]);
+        fireEvent.click(squares[4]);
+        fireEvent.click(squares[5]);
+        fireEvent.click(squares[2]);
+        fireEvent.click(squares[1]);
+        fireEvent.click(squares[6]);
+
+        const element = screen.queryByText("O wins!");
+        expect(element).toBeInTheDocument();
+    });
+
+    test('displays that it is a tie when there is no winner', () => {
+        customRender(<Board />);
+        const squares = screen.queryAllByTestId('square');
+
+        fireEvent.click(squares[0]);
+        fireEvent.click(squares[4]);
+        fireEvent.click(squares[5]);
+        fireEvent.click(squares[2]);
+        fireEvent.click(squares[1]);
+        fireEvent.click(squares[3]);
+        fireEvent.click(squares[6]);
+        fireEvent.click(squares[7]);
+        fireEvent.click(squares[8]);
+
+        const element = screen.queryByText("Its a tie");
+        expect(element).toBeInTheDocument();
+    });
 });

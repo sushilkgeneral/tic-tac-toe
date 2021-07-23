@@ -1,6 +1,8 @@
 import {render} from "../../test-utils";
 import Button from "./Button";
-import {fireEvent, screen} from "@testing-library/react";
+import {cleanup, fireEvent, screen} from "@testing-library/react";
+
+afterEach(cleanup);
 
 describe('Button Component', () => {
     test('renders a button', () => {
@@ -10,7 +12,7 @@ describe('Button Component', () => {
     });
 
     test('renders the value passed through the props', () => {
-        render(<Button value='reset'/>);
+        render(<Button text='reset'/>);
 
         const button = screen.queryByText('reset');
         expect(button).toBeInTheDocument();

@@ -5,7 +5,7 @@ describe('Redux Store', () => {
         const initialState = reducer(undefined, {});
         expect(initialState.values.length).toBe(9);
         initialState.values.forEach(value => expect(value).toBeNull());
-
+        expect(initialState.isPlayerX).toBeTruthy();
     });
 });
 

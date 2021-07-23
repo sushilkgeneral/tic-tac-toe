@@ -8,6 +8,10 @@ const Board = () => {
     const dispatch = useDispatch();
     const values = useSelector(state => state.values);
 
+    const resetHandler = () => {
+        dispatch(actions.handleReset());
+    };
+
     const squares = values.map((value, index) => {
         return (
             <Square
@@ -22,7 +26,7 @@ const Board = () => {
         <div data-testid="board" className={classes.board}>
             <h2>Tic Tac Toe</h2>
             <div className={classes.squares}>{squares}</div>
-            <Button onClick={()=>{}} text="Reset"/>
+            <Button onClick={resetHandler} text="Reset"/>
         </div>
     );
 }

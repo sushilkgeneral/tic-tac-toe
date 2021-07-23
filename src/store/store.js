@@ -6,6 +6,7 @@ const initialState = {
     isPlayerX: true,
     values: defaultValues,
     history: [defaultValues],
+    winner: null
 };
 
 const slice = createSlice({

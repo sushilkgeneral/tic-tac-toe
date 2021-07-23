@@ -10,6 +10,8 @@ describe('Redux Store', () => {
         const history = initialState.history;
         expect(history.length).toBe(1);
         expect(history[0]).toStrictEqual([null, null, null, null, null, null, null, null, null]);
+
+        expect(initialState.winner).toBeNull();
     });
 
     describe('handleClick reducer function', () => {

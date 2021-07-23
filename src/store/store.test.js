@@ -93,6 +93,21 @@ describe('Redux Store', () => {
         expect(newState.history.length).toBe(1);
     });
 
+    test('handleRewind reducer removes last entry from history, switches player and sets values to the second last entry in history', () => {
+        const initialState = {
+            isPlayerX: true,
+            values: [null, null, "O", null, 'X', null, null, null, null],
+            history: [
+                [null, null, null, null, null, null, null, null, null],
+                [null, null, null, null, 'X', null, null, null, null],
+                [null, null, "O", null, 'X', null, null, null, null]
+            ]
+        }
+        const newState = reducer(initialState, actions.handleRewind());
+        expect(newState.isPlayerX).toBeFalsy();
+        expect(newState.values).toStrictEqual([null, null, null, null, 'X', null, null, null, null]);
+        expect(newState.history.length).toBe(2);
+    });
 
 });
 

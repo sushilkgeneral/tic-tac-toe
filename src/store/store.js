@@ -20,6 +20,13 @@ const slice = createSlice({
                 state.isPlayerX = !state.isPlayerX;
             }
         },
+        handleRewind(state) {
+            if (state.history.length > 1) {
+                state.history.pop();
+                state.values = state.history[state.history.length - 1];
+                state.isPlayerX = !state.isPlayerX;
+            }
+        },
         handleReset(state) {
             state.values = defaultValues;
             state.history = [defaultValues];

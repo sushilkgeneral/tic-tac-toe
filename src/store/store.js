@@ -15,6 +15,7 @@ const slice = createSlice({
             const index = action.payload;
             if (state.values[index] === null) {
                 state.values[index] = state.isPlayerX ? "X" : "O";
+                state.isPlayerX = !state.isPlayerX;
             }
         }
     }

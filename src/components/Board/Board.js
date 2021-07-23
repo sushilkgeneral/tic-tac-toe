@@ -30,8 +30,10 @@ const Board = () => {
         <div data-testid="board" className={classes.board}>
             <h2>Tic Tac Toe</h2>
             <div className={classes.squares}>{squares}</div>
-            <Button onClick={rewindHandler} text="Rewind"/>
-            <Button onClick={resetHandler} text="Reset"/>
+            <div className={classes.buttons}>
+                <Button onClick={rewindHandler} text="Rewind"/>
+                <Button onClick={resetHandler} text="Reset"/>
+            </div>
         </div>
     );
 }

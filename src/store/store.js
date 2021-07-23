@@ -1,5 +1,16 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
+const winningCombinations = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+];
+
 const defaultValues = new Array(9).fill(null);
 
 const initialState = {
@@ -35,7 +46,16 @@ const slice = createSlice({
             state.winner = null;
         },
         calculateWinner(state, action) {
-
+            const values = action.payload;
+            for (let i = 0; i < winningCombinations.length; i++) {
+                const [a, b, c] = winningCombinations[i];
+                if (values[a] && values[a] === values[b] && values[a] === values[c]) {
+                    state.winner = values[a];
+                    break;
+                } else if (i === 7) {
+                    state.winner = null;
+                }
+            }
         }
     }
 });

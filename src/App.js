@@ -1,5 +1,14 @@
+import { Provider } from "react-redux";
+import Board from "./components/Board/Board";
+
+import store from "./store/store";
+
 function App() {
-  return <div data-testid="tic-tac-toe-app"></div>;
+  return (
+      <Provider store={store}>
+        <Board />
+      </Provider>
+  );
 }
 
 export default App;

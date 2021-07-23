@@ -5,6 +5,7 @@ const defaultValues = new Array(9).fill(null);
 const initialState = {
     isPlayerX: true,
     values: defaultValues,
+    history: [defaultValues],
 };
 
 const slice = createSlice({

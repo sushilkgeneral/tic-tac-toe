@@ -6,6 +6,10 @@ describe('Redux Store', () => {
         expect(initialState.values.length).toBe(9);
         initialState.values.forEach(value => expect(value).toBeNull());
         expect(initialState.isPlayerX).toBeTruthy();
+
+        const history = initialState.history;
+        expect(history.length).toBe(1);
+        expect(history[0]).toStrictEqual([null, null, null, null, null, null, null, null, null]);
     });
 
     describe('handleClick reducer function', () => {

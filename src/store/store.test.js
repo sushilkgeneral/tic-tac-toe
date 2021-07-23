@@ -26,6 +26,15 @@ describe('Redux Store', () => {
             const newState2 = reducer(initialState2, actions.handleClick(3));
             expect(newState2.values).toStrictEqual(expectedValues2);
         });
+
+        test('should not update the state if a value exists at the index passed in the action payload', () => {
+            const initialState = {
+                isPlayerX: true,
+                values: [null, null, null, null, 'O', null, null, null, null]
+            }
+            const newState = reducer(initialState, actions.handleClick(4));
+            expect(newState.values).toStrictEqual(initialState.values);
+        });
     });
 
 });

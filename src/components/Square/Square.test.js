@@ -1,4 +1,5 @@
-import {cleanup, fireEvent, render, screen} from "@testing-library/react";
+import {cleanup, fireEvent, screen} from "@testing-library/react";
+import { render } from "../../test-utils";
 import Square from "./Square";
 
 afterEach(cleanup);

@@ -33,6 +33,9 @@ const slice = createSlice({
             state.history = [defaultValues];
             state.isPlayerX = true;
             state.winner = null;
+        },
+        calculateWinner(state, action) {
+
         }
     }
 });

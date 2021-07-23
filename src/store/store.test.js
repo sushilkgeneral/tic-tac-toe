@@ -112,6 +112,72 @@ describe('Redux Store', () => {
         expect(newState.history.length).toBe(2);
     });
 
+    describe('calculateWinner reducer', () => {
+        test('results in a winner if same values are at indices - 0, 1, 2', () => {
+            const initialState = {
+               winner: null
+            }
+
+            const newState = reducer(initialState, actions.calculateWinner(['X', 'X', 'X', null, null, null, null, null, null]));
+            expect(newState.winner).not.toBeNull();
+        });
+        test('results in a winner if same values are at indices - 3, 4, 5', () => {
+            const initialState = {
+                winner: null
+            }
+
+            const newState = reducer(initialState, actions.calculateWinner([null, null, null, 'X', 'X', 'X', null, null, null]));
+            expect(newState.winner).not.toBeNull();
+        });
+        test('results in a winner if same values are at indices - 6, 7, 8', () => {
+            const initialState = {
+                winner: null
+            }
+
+            const newState = reducer(initialState, actions.calculateWinner([null, null, null, null, null, null, 'X', 'X', 'X']));
+            expect(newState.winner).not.toBeNull();
+        });
+        test('results in a winner if same values are at indices - 0, 3, 6', () => {
+            const initialState = {
+                winner: null
+            }
+
+            const newState = reducer(initialState, actions.calculateWinner(['X', null, null, 'X', null, null, 'X', null, null]));
+            expect(newState.winner).not.toBeNull();
+        });
+        test('results in a winner if same values are at indices - 1, 4, 7', () => {
+            const initialState = {
+                winner: null
+            }
+
+            const newState = reducer(initialState, actions.calculateWinner([null, 'X', null, null, 'X', null, null, 'X', null]));
+            expect(newState.winner).not.toBeNull();
+        });
+        test('results in a winner if same values are at indices - 2, 5, 8', () => {
+            const initialState = {
+                winner: null
+            }
+
+            const newState = reducer(initialState, actions.calculateWinner([null, null, 'X', null, null, 'X', null, null, 'X']));
+            expect(newState.winner).not.toBeNull();
+        });
+        test('results in a winner if same values are at indices - 0, 4, 8', () => {
+            const initialState = {
+                winner: null
+            }
+
+            const newState = reducer(initialState, actions.calculateWinner(['X', null, null, null, 'X', null, null, null, 'X']));
+            expect(newState.winner).not.toBeNull();
+        });
+        test('results in a winner if same values are at indices - 2, 4, 6', () => {
+            const initialState = {
+                winner: null
+            }
+
+            const newState = reducer(initialState, actions.calculateWinner([null, null, 'X', null, 'X', null, 'X', null, null]));
+            expect(newState.winner).not.toBeNull();
+        });
+    });
 });
 
 
